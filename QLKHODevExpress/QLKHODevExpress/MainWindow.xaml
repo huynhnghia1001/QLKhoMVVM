@@ -1,0 +1,114 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:Views="clr-namespace:QLKHODevExpress.Views"
+    xmlns:vm="clr-namespace:QLKHODevExpress.ViewModels"
+    xmlns:Menu="clr-namespace:QLKHODevExpress.Utilities"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+    x:Class="QLKHODevExpress.MainWindow"
+    Title="MainWindow" Height="600" Width="850"
+    WindowStartupLocation="CenterScreen"
+    AllowsTransparency="True"
+    WindowStyle="None"
+    Background="Transparent">
+    <dx:ThemedWindow.DataContext>
+        <vm:NavigationViewModel/>
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <!--Window border-->
+        <Border Background="Azure"
+                CornerRadius="20"/>
+        <!--Base Grid-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="228"/>
+                <ColumnDefinition Width="622"/>
+            </Grid.ColumnDefinitions>
+            <!--Navigation Panel-->
+            <Grid HorizontalAlignment="Left"
+                  Width="228">
+                <Border Background="DarkCyan"
+                        CornerRadius="20,0,0,20">
+
+                </Border>
+                <StackPanel Height="400"
+                            Width="228">
+
+                    <!--Home-->
+                    <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding UnitCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="Images/Hopstarter-Mac-Folders-Applications.256.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Unit" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--Suplier-->
+                    <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding SuplierCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="Images/Hopstarter-Mac-Folders-Applications.256.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Suplier" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--Object-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding ObjectCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="Images/Hopstarter-Mac-Folders-Applications.256.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Object" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--Customer-->
+                    <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding CustomerCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="Images/Hopstarter-Mac-Folders-Applications.256.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Customer" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+                    <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding UserCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="Images/Hopstarter-Mac-Folders-Applications.256.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="User" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                </StackPanel>
+
+            </Grid>
+            <Grid Grid.Column="1">
+                <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}"/>
+            </Grid>
+
+        </Grid>
+        <Button x:Name="CloseApp"
+                Style="{StaticResource ExitApp}"/>
+    </Grid>
+</dx:ThemedWindow>
